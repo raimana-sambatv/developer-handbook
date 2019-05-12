@@ -1,5 +1,5 @@
-# Questions
-- [Questions](#questions)
+# JavaScript Notes
+- [JavaScript Notes](#javascript-notes)
   - [Types](#types)
     - [List each type, if it's a primitive or built-in type, its `typeof` return values, and its distinct value(s).](#list-each-type-if-its-a-primitive-or-built-in-type-its-typeof-return-values-and-its-distinct-values)
     - [Are types attached to variables or values?](#are-types-attached-to-variables-or-values)
