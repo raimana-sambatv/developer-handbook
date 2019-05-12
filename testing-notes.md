@@ -17,7 +17,7 @@
 References
 - https://frontendmasters.com/courses/testing-practices-principles/automated-testing/
 
-[[ ↑ ] Back to top](#questions)
+[[ ↑ ] Back to top](#testing-notes)
 
 ---
 
@@ -27,7 +27,7 @@ Something that throws an error if there's a problem.
 References
 - https://frontendmasters.com/courses/testing-practices-principles/your-first-test-solution/
 
-[[ ↑ ] Back to top](#questions)
+[[ ↑ ] Back to top](#testing-notes)
 
 ---
 
@@ -37,11 +37,11 @@ The part of the test that tests whether or not something is true.
 References
 - https://medium.com/welldone-software/an-overview-of-javascript-testing-in-2019-264e19514d0a
 
-[[ ↑ ] Back to top](#questions)
+[[ ↑ ] Back to top](#testing-notes)
 
 ---
 
 ## Learning Resources
 * [Frontend Masters: JavaScript Testing Practices and Principles](https://frontendmasters.com/courses/testing-practices-principles/)
 
-[[ ↑ ] Back to top](#questions)
+[[ ↑ ] Back to top](#testing-notes)

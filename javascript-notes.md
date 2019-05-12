@@ -10,7 +10,7 @@
     - [What is boxing?](#what-is-boxing)
     - [Why is there a bias against implicitness and what's a better way to think about it?](#why-is-there-a-bias-against-implicitness-and-whats-a-better-way-to-think-about-it)
     - [How are the abstract and strict equality operators alike and different?](#how-are-the-abstract-and-strict-equality-operators-alike-and-different)
-    - [How can coercion and edge cases be handled in code?](#how-can-coercion-and-edge-cases-be-handled-in-code)
+    - [In summary, what is the best way to work with JavaScript's type system?](#in-summary-what-is-the-best-way-to-work-with-javascripts-type-system)
   - [Scope](#scope)
   - [Objects](#objects)
   - [ECMAScript Specification](#ecmascript-specification)
@@ -41,7 +41,7 @@ References
 - https://tc39.github.io/ecma262/#sec-ecmascript-language-types
 - https://tc39.github.io/ecma262/#sec-typeof-operator
 
-[[ ↑ ] Back to top](#questions)
+[[ ↑ ] Back to top](#javascript-notes)
 
 ---
 
@@ -51,7 +51,7 @@ Values have types, not variables.
 References
 - https://frontendmasters.com/courses/deep-javascript-v3/primitive-types/
 
-[[ ↑ ] Back to top](#questions)
+[[ ↑ ] Back to top](#javascript-notes)
 
 ---
 
@@ -61,7 +61,7 @@ All primitive types are immutable and the built-in Object type is mutable.
 References
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Primitive_values
 
-[[ ↑ ] Back to top](#questions)
+[[ ↑ ] Back to top](#javascript-notes)
 
 ---
 
@@ -73,7 +73,7 @@ Both `undefined` and `null` can be checked with the equality operators, but `nul
 References
 - https://github.com/yangshun/front-end-interview-handbook/blob/master/questions/javascript-questions.md#whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states
 
-[[ ↑ ] Back to top](#questions)
+[[ ↑ ] Back to top](#javascript-notes)
 
 ---
 
@@ -85,7 +85,7 @@ References
 References
 - https://frontendmasters.com/courses/deep-javascript-v3/nan-isnan/
 
-[[ ↑ ] Back to top](#questions)
+[[ ↑ ] Back to top](#javascript-notes)
 
 ---
 
@@ -100,7 +100,7 @@ References
 - http://2ality.com/2012/03/signedzero.html
 - https://frontendmasters.com/courses/deep-javascript-v3/negative-zero/
 
-[[ ↑ ] Back to top](#questions)
+[[ ↑ ] Back to top](#javascript-notes)
 
 ---
 
@@ -110,7 +110,7 @@ References
 References
 - https://frontendmasters.com/courses/deep-javascript-v3/boxing/
 
-[[ ↑ ] Back to top](#questions)
+[[ ↑ ] Back to top](#javascript-notes)
 
 ---
 
@@ -120,29 +120,29 @@ Implicit mechanisms are associated with being bad because they do things behind 
 References
 - https://frontendmasters.com/courses/deep-javascript-v3/implicit-coercion/
 
-[[ ↑ ] Back to top](#questions)
+[[ ↑ ] Back to top](#javascript-notes)
 
 ---
 
 ### How are the abstract and strict equality operators alike and different?
-If the types are the same, they do the same thing. If not, the abstract equality operator performs coercion. Specifically if the types are `null` and `undefined`, it will return `true` or try to convert each type into a number.
+If the types are the same, they do the same thing. If not, the abstract equality operator performs coercion. Specifically if the types are `null` and `undefined`, it will return `true` or try to generally convert each type into a number.
 
 References
 - https://tc39.github.io/ecma262/#sec-abstract-equality-comparison
 - https://frontendmasters.com/courses/deep-javascript-v3/double-equals-summary/
 - https://dorey.github.io/JavaScript-Equality-Table/
 
-[[ ↑ ] Back to top](#questions)
+[[ ↑ ] Back to top](#javascript-notes)
 
 ---
 
-### How can coercion and edge cases be handled in code?
-By adopting a coding style that makes types plain and obvious.
+### In summary, what is the best way to work with JavaScript's type system?
+The most important thing to do is to always understand the types used and make them obvious.
 
 References
-- https://frontendmasters.com/courses/deep-javascript-v3/intentional-coercion/
+- https://frontendmasters.com/courses/deep-javascript-v3/understanding-your-types/
 
-[[ ↑ ] Back to top](#questions)
+[[ ↑ ] Back to top](#javascript-notes)
 
 ---
 
@@ -162,7 +162,7 @@ References
 References
 - https://timothygu.me/es-howto/
 
-[[ ↑ ] Back to top](#questions)
+[[ ↑ ] Back to top](#javascript-notes)
 
 ---
 
@@ -175,7 +175,7 @@ References
 - https://tc39.github.io/ecma262/#sec-toprimitive
 - https://frontendmasters.com/courses/deep-javascript-v3/abstract-operations/
 
-[[ ↑ ] Back to top](#questions)
+[[ ↑ ] Back to top](#javascript-notes)
 
 ---
 
@@ -194,7 +194,7 @@ References
 - https://tc39.github.io/ecma262/#sec-tostring
 - https://frontendmasters.com/courses/deep-javascript-v3/tostring/
 
-[[ ↑ ] Back to top](#questions)
+[[ ↑ ] Back to top](#javascript-notes)
 
 ---
 
@@ -213,7 +213,7 @@ References
 - https://tc39.github.io/ecma262/#sec-tonumber
 - https://frontendmasters.com/courses/deep-javascript-v3/tonumber/
 
-[[ ↑ ] Back to top](#questions)
+[[ ↑ ] Back to top](#javascript-notes)
 
 ---
 
@@ -232,7 +232,7 @@ References
 - https://tc39.github.io/ecma262/#sec-toboolean
 - https://frontendmasters.com/courses/deep-javascript-v3/toboolean/
 
-[[ ↑ ] Back to top](#questions)
+[[ ↑ ] Back to top](#javascript-notes)
 
 ---
 
@@ -241,4 +241,4 @@ References
 * [How to Read the ECMAScript Specification](https://timothygu.me/es-howto/)
 * [Frontend Masters: Deep JavaScript Foundations, v3](https://frontendmasters.com/courses/deep-javascript-v3/)
 
-[[ ↑ ] Back to top](#questions)
+[[ ↑ ] Back to top](#javascript-notes)
