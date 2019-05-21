@@ -12,6 +12,15 @@
     - [How are the abstract and strict equality operators alike and different?](#how-are-the-abstract-and-strict-equality-operators-alike-and-different)
     - [In summary, what is the best way to work with JavaScript's type system?](#in-summary-what-is-the-best-way-to-work-with-javascripts-type-system)
   - [Scope](#scope)
+    - [Why is scope important?](#why-is-scope-important)
+    - [What is scope?](#what-is-scope)
+    - [What type of scope does JavaScript use and when is it determined?](#what-type-of-scope-does-javascript-use-and-when-is-it-determined)
+    - [What is the difference between an undefined and undeclared variable?](#what-is-the-difference-between-an-undefined-and-undeclared-variable)
+    - [When are global variables automatically created?](#when-are-global-variables-automatically-created)
+    - [What is strict mode and when should it be used?](#what-is-strict-mode-and-when-should-it-be-used)
+    - [In terms of grammar, what is the difference between a function declaration and a function expression?](#in-terms-of-grammar-what-is-the-difference-between-a-function-declaration-and-a-function-expression)
+    - [In terms of scope, what is the difference between a function declaration and a function expression?](#in-terms-of-scope-what-is-the-difference-between-a-function-declaration-and-a-function-expression)
+    - [What are three reasons to use named function expressions over anonymous function expressions?](#what-are-three-reasons-to-use-named-function-expressions-over-anonymous-function-expressions)
   - [Objects](#objects)
   - [ECMAScript Specification](#ecmascript-specification)
     - [What are the three main parts of the ECMAScript specification?](#what-are-the-three-main-parts-of-the-ecmascript-specification)
@@ -147,6 +156,96 @@ References
 ---
 
 ## Scope
+
+### Why is scope important?
+It improves code organization, including but not limited to closures and the module pattern.
+
+References
+- https://frontendmasters.com/courses/deep-javascript-v3/scope/
+
+[[ ↑ ] Back to top](#javascript-notes)
+
+---
+
+### What is scope?
+The extent where identifiers are available, whether it's global, in functions, or in scopes.
+
+References
+- https://frontendmasters.com/courses/deep-javascript-v3/scope/
+
+[[ ↑ ] Back to top](#javascript-notes)
+
+---
+
+### What type of scope does JavaScript use and when is it determined?
+Lexical scope and it is determined before runtime.
+
+References
+- https://frontendmasters.com/courses/deep-javascript-v3/lexical-scope-review/
+
+[[ ↑ ] Back to top](#javascript-notes)
+
+---
+
+### What is the difference between an undefined and undeclared variable?
+An undefined variable is one that has been declared and has the value `undefined`. An undeclared variable doesn't exist and doesn't hold any value because it was never declared.
+
+References
+- https://frontendmasters.com/courses/deep-javascript-v3/undefined-vs-undeclared/
+
+[[ ↑ ] Back to top](#javascript-notes)
+
+---
+
+### When are global variables automatically created?
+When assigning a value to an undeclared variable in non-strict mode.
+
+References
+- https://frontendmasters.com/courses/deep-javascript-v3/dynamic-global-variables/
+
+[[ ↑ ] Back to top](#javascript-notes)
+
+---
+
+### What is strict mode and when should it be used?
+It is a restricted variant of JavaScript that makes code more futureproof and resilient to errors. It should be used as much as possible.
+
+References
+- https://frontendmasters.com/courses/deep-javascript-v3/strict-mode/
+
+[[ ↑ ] Back to top](#javascript-notes)
+
+---
+
+### In terms of grammar, what is the difference between a function declaration and a function expression?
+If a statement begins with `function`, then it is a function declaration; if not, it is a function expression.
+
+References
+- https://frontendmasters.com/courses/deep-javascript-v3/function-expressions/
+
+[[ ↑ ] Back to top](#javascript-notes)
+
+---
+
+### In terms of scope, what is the difference between a function declaration and a function expression?
+A function declaration adds its identifier to its enclosing scope. Function expressions add their identifier to their own scope.
+
+References
+- https://frontendmasters.com/courses/deep-javascript-v3/function-expressions/
+
+[[ ↑ ] Back to top](#javascript-notes)
+
+---
+
+### What are three reasons to use named function expressions over anonymous function expressions?
+It enables reliable recursion, makes stack traces debuggable, and makes self documenting code.
+
+References
+- https://frontendmasters.com/courses/deep-javascript-v3/naming-function-expressions/
+
+[[ ↑ ] Back to top](#javascript-notes)
+
+---
 
 ## Objects
 
