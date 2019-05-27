@@ -21,6 +21,10 @@
     - [In terms of grammar, what is the difference between a function declaration and a function expression?](#in-terms-of-grammar-what-is-the-difference-between-a-function-declaration-and-a-function-expression)
     - [In terms of scope, what is the difference between a function declaration and a function expression?](#in-terms-of-scope-what-is-the-difference-between-a-function-declaration-and-a-function-expression)
     - [What are three reasons to use named function expressions over anonymous function expressions?](#what-are-three-reasons-to-use-named-function-expressions-over-anonymous-function-expressions)
+    - [As a general rule of thumb, what is the heirarchy of best ways to create a function?](#as-a-general-rule-of-thumb-what-is-the-heirarchy-of-best-ways-to-create-a-function)
+    - [What is the difference between lexical scope and dynamic scope?](#what-is-the-difference-between-lexical-scope-and-dynamic-scope)
+    - [What is the principle of least privilege and why is it useful?](#what-is-the-principle-of-least-privilege-and-why-is-it-useful)
+    - [What is an IIFE and why is it useful?](#what-is-an-iife-and-why-is-it-useful)
   - [Objects](#objects)
   - [ECMAScript Specification](#ecmascript-specification)
     - [What are the three main parts of the ECMAScript specification?](#what-are-the-three-main-parts-of-the-ecmascript-specification)
@@ -36,21 +40,21 @@
 ## Types
 
 ### List each type, if it's a primitive or built-in type, its `typeof` return values, and its distinct value(s).
-|Primitive or Built-In | Type     |`typeof` Return Values     |Distinct Values                             |
-|----------------------|----------|---------------------------|--------------------------------------------|
-|Primitive             |String    |`'string'`                 |                                            |
-|Primitive             |Number    |`'number'`                 |`0`, `-0`, `Infinity`, `-Infinity`, `NaN`   |
-|Primitive             |Boolean   |`'boolean'`                |`true` or `false`                           |
-|Primitive             |Undefined |`'undefined'`              |`undefined`                                 |
-|Primitive             |Null      |`'object'`                 |`null`                                      |
-|Primitive             |Symbol    |`'symbol'`                 |                                            |
-|Built-In              |Object    |`'object'` or `'function'` |                                            |
+| Type     |Primitive or Built-In |`typeof` Return Values     |Distinct Values                             |
+|----------|----------------------|---------------------------|--------------------------------------------|
+|String    |Primitive             |`'string'`                 |                                            |
+|Number    |Primitive             |`'number'`                 |`0`, `-0`, `Infinity`, `-Infinity`, `NaN`   |
+|Boolean   |Primitive             |`'boolean'`                |`true` or `false`                           |
+|Undefined |Primitive             |`'undefined'`              |`undefined`                                 |
+|Null      |Primitive             |`'object'`                 |`null`                                      |
+|Symbol    |Primitive             |`'symbol'`                 |                                            |
+|Object    |Built-In              |`'object'` or `'function'` |                                            |
 
 References
 - https://tc39.github.io/ecma262/#sec-ecmascript-language-types
 - https://tc39.github.io/ecma262/#sec-typeof-operator
 
-[[ ↑ ] Back to top](#javascript-notes)
+**[[ ↑ ] Back to top](#javascript-notes)**
 
 ---
 
@@ -60,7 +64,7 @@ Values have types, not variables.
 References
 - https://frontendmasters.com/courses/deep-javascript-v3/primitive-types/
 
-[[ ↑ ] Back to top](#javascript-notes)
+**[[ ↑ ] Back to top](#javascript-notes)**
 
 ---
 
@@ -70,46 +74,46 @@ All primitive types are immutable and the built-in Object type is mutable.
 References
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Primitive_values
 
-[[ ↑ ] Back to top](#javascript-notes)
+**[[ ↑ ] Back to top](#javascript-notes)**
 
 ---
 
 ### What is the difference between a variable whose value is `undefined` or `null`? How can they be checked?
 When a variable is declared with `var` or `let` and not assigned a value, it has the value `undefined`.
 
-Both `undefined` and `null` can be checked with the equality operators, but `null` can not be checked with `typeof`.
+Both `undefined` and `null` can be checked with the equality operators.
 
 References
 - https://github.com/yangshun/front-end-interview-handbook/blob/master/questions/javascript-questions.md#whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states
 
-[[ ↑ ] Back to top](#javascript-notes)
+**[[ ↑ ] Back to top](#javascript-notes)**
 
 ---
 
 ### What is `NaN` and when does it occur? How can it be checked?
-`NaN` represents an invalid number that arises from invalid numerical operations, like trying to coerce an incompatible value to a number.
+`NaN` represents an invalid number during invalid numerical operations, like trying to coerce an incompatible value to a number.
 
 `NaN` is the only value that is not equal to itself so the inequality operators can check for it. There's the more semantic `isNaN` function but it can return unexpected results due to coercing its argument to a number. So the preferred method is `Number.isNaN()`, which checks for `NaN` without coercion.
 
 References
 - https://frontendmasters.com/courses/deep-javascript-v3/nan-isnan/
 
-[[ ↑ ] Back to top](#javascript-notes)
+**[[ ↑ ] Back to top](#javascript-notes)**
 
 ---
 
 ### Why is there `-0`, how can it be checked, and how can it be useful?
-JavaScript uses the IEEE 754 standard so it requires all numbers to be signed.
+JavaScript uses the IEEE 754 standard that requires all numbers to be signed.
 
-None of the comparison operators can distinguish `-0`, so use `Object.is()` to check for it.
+None of the comparison operators can distinguish `-0`, so use `Object.is()` or try dividing a number by it to check for it.
 
-The signed zero is just extra data. For something like stock trends where trends may decrease or increase before flatlining, the negative or positive zero can indicate if the trend was last increasing or decreasing.
+A signed zero can provide additional information about how something was last changing before it stopped changing, like a stock trend or position of a car.
 
 References
 - http://2ality.com/2012/03/signedzero.html
 - https://frontendmasters.com/courses/deep-javascript-v3/negative-zero/
 
-[[ ↑ ] Back to top](#javascript-notes)
+**[[ ↑ ] Back to top](#javascript-notes)**
 
 ---
 
@@ -119,17 +123,17 @@ References
 References
 - https://frontendmasters.com/courses/deep-javascript-v3/boxing/
 
-[[ ↑ ] Back to top](#javascript-notes)
+**[[ ↑ ] Back to top](#javascript-notes)**
 
 ---
 
 ### Why is there a bias against implicitness and what's a better way to think about it?
-Implicit mechanisms are associated with being bad because they do things behind the scenes. Implicitness is better thought of as abstraction. While it isn't always good, it can be necessary because it hides unneccesary details and allow the reader to focus on what's important.
+Implicit mechanisms are associated with being bad because they do things behind the scenes. Implicitness is better thought of as abstraction. While it isn't always good, it can be necessary because it hides unneccesary details and allows the reader to focus on what's important.
 
 References
 - https://frontendmasters.com/courses/deep-javascript-v3/implicit-coercion/
 
-[[ ↑ ] Back to top](#javascript-notes)
+**[[ ↑ ] Back to top](#javascript-notes)**
 
 ---
 
@@ -141,7 +145,7 @@ References
 - https://frontendmasters.com/courses/deep-javascript-v3/double-equals-summary/
 - https://dorey.github.io/JavaScript-Equality-Table/
 
-[[ ↑ ] Back to top](#javascript-notes)
+**[[ ↑ ] Back to top](#javascript-notes)**
 
 ---
 
@@ -151,7 +155,7 @@ The most important thing to do is to always understand the types used and make t
 References
 - https://frontendmasters.com/courses/deep-javascript-v3/understanding-your-types/
 
-[[ ↑ ] Back to top](#javascript-notes)
+**[[ ↑ ] Back to top](#javascript-notes)**
 
 ---
 
@@ -163,7 +167,7 @@ It improves code organization, including but not limited to closures and the mod
 References
 - https://frontendmasters.com/courses/deep-javascript-v3/scope/
 
-[[ ↑ ] Back to top](#javascript-notes)
+**[[ ↑ ] Back to top](#javascript-notes)**
 
 ---
 
@@ -173,7 +177,7 @@ The extent where identifiers are available, whether it's global, in functions, o
 References
 - https://frontendmasters.com/courses/deep-javascript-v3/scope/
 
-[[ ↑ ] Back to top](#javascript-notes)
+**[[ ↑ ] Back to top](#javascript-notes)**
 
 ---
 
@@ -182,8 +186,9 @@ Lexical scope and it is determined before runtime.
 
 References
 - https://frontendmasters.com/courses/deep-javascript-v3/lexical-scope-review/
+- https://frontendmasters.com/courses/deep-javascript-v3/lexical-dynamic-scope/
 
-[[ ↑ ] Back to top](#javascript-notes)
+**[[ ↑ ] Back to top](#javascript-notes)**
 
 ---
 
@@ -193,7 +198,7 @@ An undefined variable is one that has been declared and has the value `undefined
 References
 - https://frontendmasters.com/courses/deep-javascript-v3/undefined-vs-undeclared/
 
-[[ ↑ ] Back to top](#javascript-notes)
+**[[ ↑ ] Back to top](#javascript-notes)**
 
 ---
 
@@ -203,7 +208,7 @@ When assigning a value to an undeclared variable in non-strict mode.
 References
 - https://frontendmasters.com/courses/deep-javascript-v3/dynamic-global-variables/
 
-[[ ↑ ] Back to top](#javascript-notes)
+**[[ ↑ ] Back to top](#javascript-notes)**
 
 ---
 
@@ -213,7 +218,7 @@ It is a restricted variant of JavaScript that makes code more futureproof and re
 References
 - https://frontendmasters.com/courses/deep-javascript-v3/strict-mode/
 
-[[ ↑ ] Back to top](#javascript-notes)
+**[[ ↑ ] Back to top](#javascript-notes)**
 
 ---
 
@@ -223,17 +228,17 @@ If a statement begins with `function`, then it is a function declaration; if not
 References
 - https://frontendmasters.com/courses/deep-javascript-v3/function-expressions/
 
-[[ ↑ ] Back to top](#javascript-notes)
+**[[ ↑ ] Back to top](#javascript-notes)**
 
 ---
 
 ### In terms of scope, what is the difference between a function declaration and a function expression?
-A function declaration adds its identifier to its enclosing scope. Function expressions add their identifier to their own scope.
+A function declaration adds its identifier to its enclosing scope. A function expression adds its identifier to its own scope.
 
 References
 - https://frontendmasters.com/courses/deep-javascript-v3/function-expressions/
 
-[[ ↑ ] Back to top](#javascript-notes)
+**[[ ↑ ] Back to top](#javascript-notes)**
 
 ---
 
@@ -243,7 +248,48 @@ It enables reliable recursion, makes stack traces debuggable, and makes self doc
 References
 - https://frontendmasters.com/courses/deep-javascript-v3/naming-function-expressions/
 
-[[ ↑ ] Back to top](#javascript-notes)
+**[[ ↑ ] Back to top](#javascript-notes)**
+
+---
+
+### As a general rule of thumb, what is the heirarchy of best ways to create a function?
+Function declarations and named function expressions are typically preferable over anonymous function expressions.
+
+References
+- https://frontendmasters.com/courses/deep-javascript-v3/function-types-hierarchy/
+
+**[[ ↑ ] Back to top](#javascript-notes)**
+
+---
+
+### What is the difference between lexical scope and dynamic scope?
+Lexical scope is determined before runtime and dynamic scope is determined during runtime.
+
+References
+- https://frontendmasters.com/courses/deep-javascript-v3/lexical-dynamic-scope/
+
+**[[ ↑ ] Back to top](#javascript-notes)**
+
+---
+
+### What is the principle of least privilege and why is it useful?
+It's the defensive practice that defaults to keeping everything private and only exposing what is necessary. It helps prevent name collisions and prevents misuse.
+
+References
+- https://frontendmasters.com/courses/deep-javascript-v3/function-scoping/
+
+**[[ ↑ ] Back to top](#javascript-notes)**
+
+---
+
+### What is an IIFE and why is it useful?
+An immediately invoked function expression is a simultaneous function declaration and execution. It creates its own scope without polluting its enclosing scope.
+
+References
+- https://frontendmasters.com/courses/deep-javascript-v3/iife-pattern/
+- https://medium.com/@vvkchandra/essential-javascript-mastering-immediately-invoked-function-expressions-67791338ddc6
+
+**[[ ↑ ] Back to top](#javascript-notes)**
 
 ---
 
@@ -261,7 +307,7 @@ References
 References
 - https://timothygu.me/es-howto/
 
-[[ ↑ ] Back to top](#javascript-notes)
+**[[ ↑ ] Back to top](#javascript-notes)**
 
 ---
 
@@ -274,7 +320,7 @@ References
 - https://tc39.github.io/ecma262/#sec-toprimitive
 - https://frontendmasters.com/courses/deep-javascript-v3/abstract-operations/
 
-[[ ↑ ] Back to top](#javascript-notes)
+**[[ ↑ ] Back to top](#javascript-notes)**
 
 ---
 
@@ -293,26 +339,26 @@ References
 - https://tc39.github.io/ecma262/#sec-tostring
 - https://frontendmasters.com/courses/deep-javascript-v3/tostring/
 
-[[ ↑ ] Back to top](#javascript-notes)
+**[[ ↑ ] Back to top](#javascript-notes)**
 
 ---
 
 #### What are the `ToNumber(argument)` return values for each type?
-|Type      |Return Values                                                                                             |
-|----------|----------------------------------------------------------------------------------------------------------|
-|String    |`0` for an empty string or one with only whitespace, `-0`, `Infinity`, `-Infinity`, `NaN`, or some number |
-|Number    |argument                                                                                                  |
-|Boolean   |`1` or `0`                                                                                                |
-|Undefined |`NaN`                                                                                                     |
-|Null      |`0`                                                                                                       |
-|Symbol    |`TypeError`                                                                                               |
-|Object    |`ToNumber(ToPrimitive(argument, hint Number))`                                                            |
+|Type      |Return Values                                                                                                  |
+|----------|---------------------------------------------------------------------------------------------------------------|
+|String    |`0`, `-0`, `Infinity`, `-Infinity`, `NaN`, `0` for an empty string or one with only whitespace, or some number |
+|Number    |argument                                                                                                       |
+|Boolean   |`1` or `0`                                                                                                     |
+|Undefined |`NaN`                                                                                                          |
+|Null      |`0`                                                                                                            |
+|Symbol    |`TypeError`                                                                                                    |
+|Object    |`ToNumber(ToPrimitive(argument, hint Number))`                                                                 |
 
 References
 - https://tc39.github.io/ecma262/#sec-tonumber
 - https://frontendmasters.com/courses/deep-javascript-v3/tonumber/
 
-[[ ↑ ] Back to top](#javascript-notes)
+**[[ ↑ ] Back to top](#javascript-notes)**
 
 ---
 
@@ -331,7 +377,7 @@ References
 - https://tc39.github.io/ecma262/#sec-toboolean
 - https://frontendmasters.com/courses/deep-javascript-v3/toboolean/
 
-[[ ↑ ] Back to top](#javascript-notes)
+**[[ ↑ ] Back to top](#javascript-notes)**
 
 ---
 
@@ -340,4 +386,4 @@ References
 * [How to Read the ECMAScript Specification](https://timothygu.me/es-howto/)
 * [Frontend Masters: Deep JavaScript Foundations, v3](https://frontendmasters.com/courses/deep-javascript-v3/)
 
-[[ ↑ ] Back to top](#javascript-notes)
+**[[ ↑ ] Back to top](#javascript-notes)**
