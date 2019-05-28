@@ -25,6 +25,10 @@
     - [What is the difference between lexical scope and dynamic scope?](#what-is-the-difference-between-lexical-scope-and-dynamic-scope)
     - [What is the principle of least privilege and why is it useful?](#what-is-the-principle-of-least-privilege-and-why-is-it-useful)
     - [What is an IIFE and why is it useful?](#what-is-an-iife-and-why-is-it-useful)
+    - [What is hoisting?](#what-is-hoisting)
+    - [What is the temporal dead zone?](#what-is-the-temporal-dead-zone)
+    - [What is a closure?](#what-is-a-closure)
+    - [What is a module?](#what-is-a-module)
   - [Objects](#objects)
   - [ECMAScript Specification](#ecmascript-specification)
     - [What are the three main parts of the ECMAScript specification?](#what-are-the-three-main-parts-of-the-ecmascript-specification)
@@ -79,7 +83,7 @@ References
 ---
 
 ### What is the difference between a variable whose value is `undefined` or `null`? How can they be checked?
-When a variable is declared with `var` or `let` and not assigned a value, it has the value `undefined`.
+When a variable is declared with `var` or `let` and not assigned a value, it is initialized with the value `undefined`.
 
 Both `undefined` and `null` can be checked with the equality operators.
 
@@ -288,6 +292,47 @@ An immediately invoked function expression is a simultaneous function declaratio
 References
 - https://frontendmasters.com/courses/deep-javascript-v3/iife-pattern/
 - https://medium.com/@vvkchandra/essential-javascript-mastering-immediately-invoked-function-expressions-67791338ddc6
+
+**[[ ↑ ] Back to top](#javascript-notes)**
+
+---
+
+### What is hoisting?
+A metaphor for the behavior of lexical scope, especially due to it ocurring before runtime. Hoisting claims that declarations are moved to the top of their scope to explain how things like function declarations can be below where they are called yet still work.
+
+References
+- https://frontendmasters.com/courses/deep-javascript-v3/hoisting/
+
+**[[ ↑ ] Back to top](#javascript-notes)**
+
+---
+
+### What is the temporal dead zone?
+The area between the start of a scope and the declaration of a variable declared with `const` or `let` where that variable can not be accessed because it isn't initialized yet. This is in contrast to variables declared with `var`, which can be accessed before their declaration.
+
+References
+- https://frontendmasters.com/courses/deep-javascript-v3/let-doesn-t-hoist/
+
+**[[ ↑ ] Back to top](#javascript-notes)**
+
+---
+
+### What is a closure?
+A function that retains access to its lexical scope when executed outside that lexical scope.
+
+References
+- https://frontendmasters.com/courses/deep-javascript-v3/what-is-closure/
+- https://github.com/yangshun/front-end-interview-handbook/blob/master/questions/javascript-questions.md#what-is-a-closure-and-howwhy-would-you-use-one
+
+**[[ ↑ ] Back to top](#javascript-notes)**
+
+---
+
+### What is a module?
+A pattern that uses encapsulation to hide a private API while exposing a public API.
+
+References
+- https://frontendmasters.com/courses/deep-javascript-v3/module-pattern/
 
 **[[ ↑ ] Back to top](#javascript-notes)**
 
