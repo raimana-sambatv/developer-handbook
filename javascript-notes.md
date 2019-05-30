@@ -29,7 +29,6 @@
     - [What is a closure?](#what-is-a-closure)
     - [What is a module?](#what-is-a-module)
   - [Objects](#objects)
-    - [What is a module?](#what-is-a-module-1)
     - [What is the purpose of `this` and what does it reference?](#what-is-the-purpose-of-this-and-what-does-it-reference)
     - [What are the four execution contexts and the value of `this` for each context?](#what-are-the-four-execution-contexts-and-the-value-of-this-for-each-context)
     - [What is the binding precedence?](#what-is-the-binding-precedence)
@@ -335,16 +334,6 @@ References
 ---
 
 ## Objects
-
-### What is a module?
-A pattern that uses encapsulation, which can be powered by IIFEs and closures, to hide a private API while exposing a public API.
-
-References
-- https://frontendmasters.com/courses/deep-javascript-v3/module-pattern/
-
-**[[ ↑ ] Back to top](#javascript-notes)**
-
----
 
 ### What is the purpose of `this` and what does it reference?
 `this` enables a function to be flexible in different execution contexts during runtime. `this` references the execution context when a function is called.
