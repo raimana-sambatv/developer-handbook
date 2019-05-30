@@ -12,8 +12,7 @@
     - [How are the abstract and strict equality operators alike and different?](#how-are-the-abstract-and-strict-equality-operators-alike-and-different)
     - [In summary, what is the best way to work with JavaScript's type system?](#in-summary-what-is-the-best-way-to-work-with-javascripts-type-system)
   - [Scope](#scope)
-    - [Why is scope important?](#why-is-scope-important)
-    - [What is scope?](#what-is-scope)
+    - [What is scope and why is it important?](#what-is-scope-and-why-is-it-important)
     - [What type of scope does JavaScript use and when is it determined?](#what-type-of-scope-does-javascript-use-and-when-is-it-determined)
     - [What is the difference between an undefined and undeclared variable?](#what-is-the-difference-between-an-undefined-and-undeclared-variable)
     - [When are global variables automatically created?](#when-are-global-variables-automatically-created)
@@ -30,6 +29,13 @@
     - [What is a closure?](#what-is-a-closure)
     - [What is a module?](#what-is-a-module)
   - [Objects](#objects)
+    - [What is a module?](#what-is-a-module-1)
+    - [What is the purpose of `this` and what does it reference?](#what-is-the-purpose-of-this-and-what-does-it-reference)
+    - [What are the four execution contexts and the value of `this` for each context?](#what-are-the-four-execution-contexts-and-the-value-of-this-for-each-context)
+    - [What is the binding precedence?](#what-is-the-binding-precedence)
+    - [What is the difference between `call`, `apply`, and `bind`?](#what-is-the-difference-between-call-apply-and-bind)
+    - [In an arrow function, how does its lexical `this` work?](#in-an-arrow-function-how-does-its-lexical-this-work)
+    - [What does the `class` declaration do?](#what-does-the-class-declaration-do)
   - [ECMAScript Specification](#ecmascript-specification)
     - [What are the three main parts of the ECMAScript specification?](#what-are-the-three-main-parts-of-the-ecmascript-specification)
     - [Abstract Operations](#abstract-operations)
@@ -165,18 +171,8 @@ References
 
 ## Scope
 
-### Why is scope important?
-It improves code organization, including but not limited to closures and the module pattern.
-
-References
-- https://frontendmasters.com/courses/deep-javascript-v3/scope/
-
-**[[ ↑ ] Back to top](#javascript-notes)**
-
----
-
-### What is scope?
-The extent where identifiers are available, whether it's global, in functions, or in scopes.
+### What is scope and why is it important?
+It is the extent where identifiers are available and improves code organization, including but not limited to closures and the module pattern.
 
 References
 - https://frontendmasters.com/courses/deep-javascript-v3/scope/
@@ -329,7 +325,7 @@ References
 ---
 
 ### What is a module?
-A pattern that uses encapsulation to hide a private API while exposing a public API.
+A pattern that uses encapsulation, which can be powered by IIFEs and closures, to hide a private API while exposing a public API.
 
 References
 - https://frontendmasters.com/courses/deep-javascript-v3/module-pattern/
@@ -339,6 +335,90 @@ References
 ---
 
 ## Objects
+
+### What is a module?
+A pattern that uses encapsulation, which can be powered by IIFEs and closures, to hide a private API while exposing a public API.
+
+References
+- https://frontendmasters.com/courses/deep-javascript-v3/module-pattern/
+
+**[[ ↑ ] Back to top](#javascript-notes)**
+
+---
+
+### What is the purpose of `this` and what does it reference?
+`this` enables a function to be flexible in different execution contexts during runtime. `this` references the execution context when a function is called.
+
+References
+- https://frontendmasters.com/courses/deep-javascript-v3/the-this-keyword/
+
+**[[ ↑ ] Back to top](#javascript-notes)**
+
+---
+
+### What are the four execution contexts and the value of `this` for each context?
+|Execution Context|Value of `this`                                 |Example                               |
+|-----------------|------------------------------------------------|--------------------------------------|
+|Implicit binding |The object calling the function                 |`someObject.method()`                 |
+|Explicit binding |Whatever is set with `call`, `apply`, or `bind` |`someObject.call(thisValue, method) ` |
+|`new` binding    |The newly constructed object                    |`const myGhost = new Ghost()`         |
+|Default binding  |The global object or `undefined` in strict mode |`console.log(this)`                   |
+
+References
+- https://alligator.io/js/this-keyword/
+- https://frontendmasters.com/courses/deep-javascript-v3/implicit-explicit-binding/
+- https://frontendmasters.com/courses/deep-javascript-v3/the-new-keyword/
+
+**[[ ↑ ] Back to top](#javascript-notes)**
+
+---
+
+### What is the binding precedence?
+1. `new` binding
+2. Explicit binding
+3. Implicit binding
+4. Default binding
+
+
+References
+- https://frontendmasters.com/courses/deep-javascript-v3/binding-precedence/
+
+**[[ ↑ ] Back to top](#javascript-notes)**
+
+---
+
+### What is the difference between `call`, `apply`, and `bind`?
+`call` and `apply` both invoke functions with an explicitly bound value for `this`. The only difference is that `call` takes comma-separated arguments for the function while `apply` takes an array for arguments for the function.
+
+`bind` returns an explicitly bound function for use in things like callbacks.
+
+References
+- https://github.com/yangshun/front-end-interview-handbook/blob/master/questions/javascript-questions.md#whats-the-difference-between-call-and-apply
+- 
+
+**[[ ↑ ] Back to top](#javascript-notes)**
+
+---
+
+### In an arrow function, how does its lexical `this` work?
+An arrow function does not define its `this` at all, so it will resolve it lexically by going to its enclosing scopes.
+
+References
+- https://frontendmasters.com/courses/deep-javascript-v3/arrow-functions-lexical-this/
+
+**[[ ↑ ] Back to top](#javascript-notes)**
+
+---
+
+### What does the `class` declaration do?
+It creates a new class with a given name using prototype-based inheritance.
+
+References
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class
+
+**[[ ↑ ] Back to top](#javascript-notes)**
+
+---
 
 ## ECMAScript Specification
 
