@@ -496,8 +496,8 @@ References
 ---
 
 ## Learning Resources
-* [ECMAScript Specification](https://tc39.github.io/ecma262/)
-* [How to Read the ECMAScript Specification](https://timothygu.me/es-howto/)
-* [Frontend Masters: Deep JavaScript Foundations, v3](https://frontendmasters.com/courses/deep-javascript-v3/)
+- [ECMAScript Specification](https://tc39.github.io/ecma262/)
+- [How to Read the ECMAScript Specification](https://timothygu.me/es-howto/)
+- [Frontend Masters: Deep JavaScript Foundations, v3](https://frontendmasters.com/courses/deep-javascript-v3/)
 
 **[[ ↑ ] Back to top](#javascript-notes)**

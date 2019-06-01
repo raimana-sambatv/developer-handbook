@@ -42,6 +42,6 @@ References
 ---
 
 ## Learning Resources
-* [Frontend Masters: JavaScript Testing Practices and Principles](https://frontendmasters.com/courses/testing-practices-principles/)
+- [Frontend Masters: JavaScript Testing Practices and Principles](https://frontendmasters.com/courses/testing-practices-principles/)
 
 **[[ ↑ ] Back to top](#testing-notes)**
